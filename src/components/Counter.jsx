@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import {Button, Typography} from "@material-ui/core";
+import {Button, Grid, Typography} from "@material-ui/core";
 
 const Counter = () => {
     const [ count, setCount] = useState(0);
@@ -12,13 +12,17 @@ const Counter = () => {
     }
     return (
         <div>
-            <div className="main">
-                <Typography variant= 'h3' align='center' style={{ background : "antiquewhite"}} >
-                    { `Count : ${count}`}
-                </Typography>
-                <Button variant='contained' onClick={increment} color='primary'>Increment</Button>
-                <Button variant='contained' onClick={decrement} color='secondary'>Decrement</Button>
-            </div>
+             <Grid container justify='center'>
+                <Grid item mt={5} >
+                    <div className="main">
+                    <Typography variant= 'h3' align='center'  >
+                        { `Count : ${count}`}
+                    </Typography>
+                        <Button variant='contained' onClick={increment} color='primary'>Increment</Button>
+                        <Button variant='contained' onClick={decrement} color='secondary'>Decrement</Button>
+                    </div>
+                </Grid>
+             </Grid>
         </div>
 
     )
