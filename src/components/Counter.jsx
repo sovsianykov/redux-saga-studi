@@ -1,25 +1,20 @@
 import React, {useState} from "react";
 import {Button, Grid, Typography} from "@material-ui/core";
+import { increment , decrement } from "../redux/ducks/actions";
+import { useDispatch, useSelector } from "react-redux";
 
-const Counter = () => {
-    const [ count, setCount] = useState(0);
+const Counter = (props) => {
+    const dispatch = useDispatch()
+    const name = props.name
 
-    const increment = () => {
-        setCount( count  + 1)
-    }
-    const decrement = () => {
-        setCount( count - 1)
-    }
     return (
         <div>
              <Grid container justify='center'>
                 <Grid item mt={5} >
                     <div className="main">
-                    <Typography variant= 'h3' align='center'  >
-                        { `Count : ${count}`}
-                    </Typography>
-                        <Button variant='contained' onClick={increment} color='primary'>Increment</Button>
-                        <Button variant='contained' onClick={decrement} color='secondary'>Decrement</Button>
+                         <p>{name}</p>
+                        <Button variant='contained' onClick={() => dispatch(increment())} color='primary'>Increment</Button>
+                        <Button variant='contained' onClick={() => dispatch(decrement())} color='secondary'>Decrement</Button>
                     </div>
                 </Grid>
              </Grid>

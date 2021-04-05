@@ -1,10 +1,15 @@
-import { combineReducers , createStore } from "redux";
-import counterReducer from ' ./ducks/counter '
+import { combineReducers , createStore , applyMiddleware} from "redux";
+import { counterReducer } from './ducks/counterReducer';
+import { userReducer } from './ducks/user';
+import createSagaMiddleware from 'redux-saga'
+
 
 const reducer = combineReducers({
-  counter :  counterReducer
+  counter :  counterReducer,
+  user : userReducer
 })
-const store = createStore(reducer)
-
+const sagaMiddleware = createSagaMiddleware()
+const middleware = [ sagaMiddleware] ;
+const store = createStore(reducer, {}, applyMiddleware( ...middleware))
 
 export default store

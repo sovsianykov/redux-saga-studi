@@ -9,7 +9,7 @@ const initialState  =  {
 
 }
 
- const counterReducer =  ( state = initialState, action) =>{
+ export const counterReducer =  ( state = initialState, action) =>{
 
     switch (action.type) {
         case INCREMENT :
@@ -22,4 +22,4 @@ const initialState  =  {
 
 
 }
-export default counterReducer;
+
